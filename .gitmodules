@@ -1,0 +1,3 @@
+[submodule "prisma-db"]
+	path = prisma-db
+	url = ../prisma-db
