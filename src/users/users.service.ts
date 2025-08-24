@@ -1,14 +1,21 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../database/prisma.service';
-import { User, Prisma } from '../../prisma-db/generated/prisma';
+import { User, Prisma } from '@rene-marchioretto/prisma-entities/generated/prisma';
+import { CreateUserDto, UpdateUserDto } from './dto';
 
 @Injectable()
 export class UsersService {
   constructor(private prisma: PrismaService) {}
 
-  async createUser(data: Prisma.UserCreateInput): Promise<User> {
+  async createUser(data: CreateUserDto): Promise<User> {
     return this.prisma.user.create({
-      data,
+      data: {
+        email: data.email,
+        name: data.name,
+        password: data.password,
+        companyId: data.companyId,
+        branchId: data.branchId,
+      },
     });
   }
 
@@ -41,10 +48,16 @@ export class UsersService {
     });
   }
 
-  async updateUser(id: number, data: Prisma.UserUpdateInput): Promise<User> {
+  async updateUser(id: number, data: UpdateUserDto): Promise<User> {
     return this.prisma.user.update({
       where: { id },
-      data,
+      data: {
+        ...(data.email !== undefined && { email: data.email }),
+        ...(data.name !== undefined && { name: data.name }),
+        ...(data.password !== undefined && { password: data.password }),
+        ...(data.companyId !== undefined && { companyId: data.companyId }),
+        ...(data.branchId !== undefined && { branchId: data.branchId }),
+      },
     });
   }
 

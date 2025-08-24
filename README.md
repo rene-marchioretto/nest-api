@@ -1,23 +1,59 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# NestJS API with Shared Prisma Database
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+A modern NestJS API application that uses a shared Prisma database package for type-safe database operations and consistent data models across multiple applications.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
+## 🏗️ Architecture
+
+This application follows a **shared library pattern** where:
+
+- **`@rene-marchioretto/prisma-entities`**: Shared Prisma database package (installed as dependency)
+- **`nest-api`**: NestJS API application consuming the shared database package
+
+## 🚀 Features
+
+- ✅ **Type-safe database operations** with Prisma ORM
+- ✅ **Shared DTOs and entities** from the Prisma package
+- ✅ **Input validation** with class-validator
+- ✅ **API documentation** with Swagger/OpenAPI
+- ✅ **Environment configuration** with @nestjs/config
+- ✅ **Global error handling** and validation pipes
+- ✅ **Modular architecture** following NestJS best practices
+
+## 📚 API Documentation
+
+Once the application is running, visit:
+- **Swagger UI**: http://localhost:3000/api
+- **API Endpoints**: http://localhost:3000
+
+## 🔧 Available Endpoints
+
+### Users
+- `GET /users` - Get all users
+- `GET /users/:id` - Get user by ID
+- `POST /users` - Create a new user
+- `PUT /users/:id` - Update user by ID
+- `DELETE /users/:id` - Delete user by ID
+
+## 🛠️ Setup
+
+### 1. Install dependencies
+```bash
+npm install
+```
+
+### 2. Environment configuration
+```bash
+cp .env.example .env
+# Edit .env with your database connection string
+```
+
+### 3. Start the application
+```bash
+# Development mode
+npm run start:dev
+```
+
+Visit http://localhost:3000/api for Swagger documentation!
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 

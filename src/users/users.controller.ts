@@ -20,21 +20,33 @@ export class UsersController {
 
   @Post()
   @ApiOperation({ summary: 'Create a new user' })
-  @ApiResponse({ status: 201, description: 'User created successfully', type: UserResponseDto })
+  @ApiResponse({
+    status: 201,
+    description: 'User created successfully',
+    type: UserResponseDto,
+  })
   async createUser(@Body() createUserDto: CreateUserDto) {
     return this.usersService.createUser(createUserDto);
   }
 
   @Get()
   @ApiOperation({ summary: 'Get all users' })
-  @ApiResponse({ status: 200, description: 'Users retrieved successfully', type: [UserResponseDto] })
+  @ApiResponse({
+    status: 200,
+    description: 'Users retrieved successfully',
+    type: [UserResponseDto],
+  })
   async findAllUsers() {
     return this.usersService.findAllUsers();
   }
 
   @Get(':id')
   @ApiOperation({ summary: 'Get user by ID' })
-  @ApiResponse({ status: 200, description: 'User retrieved successfully', type: UserResponseDto })
+  @ApiResponse({
+    status: 200,
+    description: 'User retrieved successfully',
+    type: UserResponseDto,
+  })
   @ApiResponse({ status: 404, description: 'User not found' })
   async findUserById(@Param('id', ParseIntPipe) id: number) {
     const user = await this.usersService.findUserById(id);
@@ -46,7 +58,11 @@ export class UsersController {
 
   @Put(':id')
   @ApiOperation({ summary: 'Update user by ID' })
-  @ApiResponse({ status: 200, description: 'User updated successfully', type: UserResponseDto })
+  @ApiResponse({
+    status: 200,
+    description: 'User updated successfully',
+    type: UserResponseDto,
+  })
   @ApiResponse({ status: 404, description: 'User not found' })
   async updateUser(
     @Param('id', ParseIntPipe) id: number,
@@ -57,7 +73,7 @@ export class UsersController {
     if (!existingUser) {
       throw new NotFoundException('User not found');
     }
-    
+
     return this.usersService.updateUser(id, updateUserDto);
   }
 
@@ -71,7 +87,7 @@ export class UsersController {
     if (!existingUser) {
       throw new NotFoundException('User not found');
     }
-    
+
     return this.usersService.deleteUser(id);
   }
 }
