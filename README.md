@@ -22,12 +22,14 @@ This application follows a **shared library pattern** where:
 ## 📚 API Documentation
 
 Once the application is running, visit:
+
 - **Swagger UI**: http://localhost:3000/api
 - **API Endpoints**: http://localhost:3000
 
 ## 🔧 Available Endpoints
 
 ### Users
+
 - `GET /users` - Get all users
 - `GET /users/:id` - Get user by ID
 - `POST /users` - Create a new user
@@ -37,23 +39,27 @@ Once the application is running, visit:
 ## 🛠️ Setup
 
 ### 1. Install dependencies
+
 ```bash
 npm install
 ```
 
 ### 2. Environment configuration
+
 ```bash
 cp .env.example .env
 # Edit .env with your database connection string
 ```
 
 ### 3. Start the application
+
 ```bash
 # Development mode
 npm run start:dev
 ```
 
 Visit http://localhost:3000/api for Swagger documentation!
+
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
